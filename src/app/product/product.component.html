@@ -6,7 +6,9 @@
     </a>
     <div class="d-flex justify-content-between">
       <span class="card-text">{{product.price | currency}}</span>
-      <a class="btn btn-primary">Add to Cart</a>
+      <a class="btn" [ngClass]="isAddedToCart ? 'btn-danger' : 'btn-success'" (click)="changeCart()">
+        {{isAddedToCart ? 'Remove' : 'Add to Cart'}}
+      </a>
     </div>
   </div>
 </div>

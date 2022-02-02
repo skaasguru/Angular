@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { CartService } from '../cart.service';
 import { IProduct } from '../models';
 
 @Component({
@@ -11,7 +12,10 @@ export class ProductListComponent implements OnInit {
 
   products: IProduct[] | undefined;
 
-  constructor(private api: ApiService) { }
+  constructor(
+    private api: ApiService,
+    public cart: CartService
+  ) { }
 
   ngOnInit(): void {
     this.api.listProducts().subscribe({
@@ -20,4 +24,11 @@ export class ProductListComponent implements OnInit {
     });
   }
 
+  changeCart(id: number) {
+    if (this.cart.isInCart(id)) {
+      this.cart.removeFromCart(id);
+    } else {
+      this.cart.addToCart(id);
+    }
+  }
 }

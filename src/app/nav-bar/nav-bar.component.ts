@@ -1,17 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
   styleUrls: ['./nav-bar.component.css']
 })
-export class NavBarComponent implements OnInit {
+export class NavBarComponent {
 
   @Input() title!: string;
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  constructor(public cart: CartService) { }
 }

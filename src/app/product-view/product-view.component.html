@@ -14,7 +14,9 @@
                     </p>
                     <pre><code>{{product.specs | json}}</code></pre>
                     
-                    <a href="#" class="btn btn-primary">Add to Cart</a>
+                    <a class="btn" [ngClass]="cart.isInCart(product.id) ? 'btn-danger' : 'btn-success'" (click)="changeCart(product.id)">
+                        {{cart.isInCart(product.id) ? 'Remove' : 'Add to Cart'}}
+                    </a>
                 </div>
             </div>
         </div>

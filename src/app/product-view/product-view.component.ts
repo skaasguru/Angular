@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../api.service';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-product-view',
@@ -13,7 +14,8 @@ export class ProductViewComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private api: ApiService
+    private api: ApiService,
+    public cart: CartService
   ) { }
 
   ngOnInit(): void {
@@ -27,4 +29,11 @@ export class ProductViewComponent implements OnInit {
     }
   }
 
+  changeCart(id: number) {
+    if (this.cart.isInCart(id)) {
+      this.cart.removeFromCart(id);
+    } else {
+      this.cart.addToCart(id);
+    }
+  }
 }
