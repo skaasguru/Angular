@@ -1,7 +1,9 @@
 <div class="card my-2 shadow-sm">
   <img [src]="product.image" class="card-img-top" alt="loading">
   <div class="card-body">
-    <h5 class="card-title">{{product.model}}</h5>
+    <a [routerLink]="['/products', product.id]" class="link-primary">
+      <h5 class="card-title">{{product.model}}</h5>
+    </a>
     <div class="d-flex justify-content-between">
       <span class="card-text">{{product.price | currency}}</span>
       <a class="btn btn-primary">Add to Cart</a>
