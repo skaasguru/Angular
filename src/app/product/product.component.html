@@ -1,1 +1,10 @@
-<p>product works!</p>
+<div class="card my-2 shadow-sm">
+  <img [src]="product.image" class="card-img-top" alt="loading">
+  <div class="card-body">
+    <h5 class="card-title">{{product.model}}</h5>
+    <div class="d-flex justify-content-between">
+      <span class="card-text">{{product.price}}</span>
+      <a class="btn btn-primary">Add to Cart</a>
+    </div>
+  </div>
+</div>
