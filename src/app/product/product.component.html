@@ -3,7 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">{{product.model}}</h5>
     <div class="d-flex justify-content-between">
-      <span class="card-text">{{product.price}}</span>
+      <span class="card-text">{{product.price | currency}}</span>
       <a class="btn btn-primary">Add to Cart</a>
     </div>
   </div>
